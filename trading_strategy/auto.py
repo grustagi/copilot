@@ -149,15 +149,19 @@ def main(stock):
 # 
 # stocks = sys.argv[1].split(",")
 
-# read niftymicrocap250 symbols from nse site
-symbols_df = pd.read_csv("https://archives.nseindia.com/content/indices/ind_niftymicrocap250_list.csv")
-symbols_df['Symbol'] = symbols_df['Symbol'].apply(lambda x: x + '.NS')
-print(symbols_df)
-stocks = symbols_df['Symbol'].to_list()
-dfs = []
-for stock in stocks:
-    df = main(stock)
-    dfs.append(df)
+# read nifty index symbols from nse site
 
-merged = pd.concat(dfs) # add ignore_index=True if appropriate
-merged.to_csv('niftymicrocap250.NS.csv', index=False)
+indices = ["nifty50", "nifty100", "nifty500", "niftysmallcap100", "niftymicrocap250"]
+for index in indices:
+    symbols_df = pd.read_csv(f"https://archives.nseindia.com/content/indices/ind_{index}_list.csv")
+    symbols_df['Symbol'] = symbols_df['Symbol'].apply(lambda x: x + '.NS')
+    print(symbols_df)
+    print(f"Running scrip for {index}")
+    stocks = symbols_df['Symbol'].to_list()
+    dfs = []
+    for stock in stocks:
+        df = main(stock)
+        dfs.append(df)
+
+    merged = pd.concat(dfs) # add ignore_index=True if appropriate
+    merged.to_csv(f"{index}.NS.csv", index=False)

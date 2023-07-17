@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
-set -exuo pipefail
+set -eo pipefail
 
-q -d , -H -O "select sum(strategy) from $1"
-q -d , -H -O "select Stock,Date,buy,sell from $1 where (buy <> 0 OR sell <> 0) AND year = 2023 AND month in (6,7)"
+#./auto.py
+
+function pnlyear()
+{
+    nifty=$1
+    echo "START:$nifty"
+    q -d , -H -O "select sum(strategy) from $nifty"
+    q -d , -H -O "select Stock,Date,buy,sell from $nifty where (buy <> 0 OR sell <> 0)"
+    echo "END:$nifty"
+}
+
+pnlyear "nifty50.NS.csv"
+pnlyear "nifty100.NS.csv"
+pnlyear "nifty500.NS.csv"
+pnlyear "niftysmallcap100.NS.csv"
+pnlyear "niftymicrocap250.NS.csv"

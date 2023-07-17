@@ -77,7 +77,6 @@ pyqt5-sip=12.11.0=py311h6a678d5_0
 python=3.11.4=h955ad1f_0
 python-dateutil=2.8.2=pyhd3eb1b0_0
 pytz=2022.7=py311h06a4308_0
-q=3.1.6=pypi_0
 qt-main=5.15.2=h327a75a_7
 qt-webengine=5.15.9=hd2b0992_4
 qtwebkit=5.212=h4eab89a_4
@@ -85,7 +84,6 @@ readline=8.2=h5eee18b_0
 seaborn=0.12.2=py311h06a4308_0
 setuptools=67.8.0=py311h06a4308_0
 sip=6.6.2=py311h6a678d5_0
-six=1.11.0=pypi_0
 sqlite=3.41.2=h5eee18b_0
 tabulate=0.8.10=py311h06a4308_0
 tbb=2021.8.0=hdb19cb5_0

@@ -152,7 +152,7 @@ def main(stock):
 # read niftymicrocap250 symbols from nse site
 symbols_df = pd.read_csv("https://archives.nseindia.com/content/indices/ind_niftymicrocap250_list.csv")
 symbols_df['Symbol'] = symbols_df['Symbol'].apply(lambda x: x + '.NS')
-print(symbols_df.to_markdown())
+print(symbols_df)
 stocks = symbols_df['Symbol'].to_list()
 dfs = []
 for stock in stocks:

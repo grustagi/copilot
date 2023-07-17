@@ -1,0 +1,7 @@
+# ignore all downloaded packages, except the scripts
+
+downloads/
+!downloads/*.sh
+
+# ignore all generated csv files
+trading_strategy/*.csv
